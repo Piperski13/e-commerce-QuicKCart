@@ -1,0 +1,32 @@
+import { useEffect, useState } from "react";
+import { fetchProducts } from "../api/products";
+
+export default function ProductList() {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchProducts()
+      .then(setProducts)
+      .catch((err) => setError(err.message));
+  }, []);
+
+  if (error) return <p>Error: {error}</p>;
+  if (!products.length) return <p>Loading...</p>;
+
+  return (
+    <div>
+      {products.map((product) => (
+        <div key={product.id}>
+          <img src={product.images[0]} alt={product.title} />
+          <h2>{product.title}</h2>
+          <p className="text-sm text-gray-600 mb-4">
+            {product.description.split(" ").slice(0, 5).join(" ")}...
+          </p>
+          <button>{product.category.name}</button>
+          <p>${product.price}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
