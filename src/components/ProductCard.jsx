@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProductCard = ({ product }) => {
   return (
     <div className="w-[360px] bg-white rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl font-sans overflow-hidden relative cursor-pointer m-4">
@@ -35,10 +37,13 @@ const ProductCard = ({ product }) => {
               ${product.price}
             </span>
           </div>
-          <button className="relative bg-gradient-to-r from-zinc-800 to-zinc-700 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform">
-            <span>Add to Cart</span>
+          <Link
+            to={`/product/${product.id}`}
+            className="relative bg-gradient-to-r from-zinc-800 to-zinc-700 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform"
+          >
+            <span className="text-[#f8fafc]">Add to Cart</span>
             <svg
-              className="w-5 h-5"
+              className="w-5 h-5 text-[#f8fafc]"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -48,7 +53,7 @@ const ProductCard = ({ product }) => {
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 01-8 0" />
             </svg>
-          </button>
+          </Link>
         </div>
 
         <div className="flex justify-between items-center pt-3 border-t border-zinc-100">

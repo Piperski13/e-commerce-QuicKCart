@@ -3,6 +3,7 @@ import App from "./App";
 import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
 import CartPage from "./components/CartPage";
+import ProductPage from "./components/ProductPage";
 
 const routes = [
   {
@@ -12,7 +13,10 @@ const routes = [
   {
     path: "/products",
     element: <App />,
-    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/product/:id",
+    element: <ProductPage />,
   },
   {
     path: "/home",
