@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ProductCard from "./ProductCard";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -6,7 +7,7 @@ const ProductList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/products")
+    fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -21,23 +22,10 @@ const ProductList = () => {
   if (error) return <p>Error: {error}</p>;
   if (loading) return <p>Loading...</p>;
 
-
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center">
       {products.map((product) => (
-        <div
-          key={product.id}
-          className="border-5 border-gray-500/20 rounded-lg p-4 cursor-pointer hover:scale-105 transition-transform duration-200"
-        >
-          <p>id: {product.id}</p>
-          <img src={product.images[0]} alt={product.title} />
-          <h2>{product.title}</h2>
-          <p className="text-sm text-gray-600 mb-4">
-            {product.description.split(" ").slice(0, 5).join(" ")}...
-          </p>
-          <button>{product.category.name}</button>
-          <p>${product.price}</p>
-        </div>
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );
