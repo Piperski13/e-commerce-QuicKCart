@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
-import { fetchProducts } from "../api/products";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchProducts()
-      .then(setProducts)
-      .catch((err) => setError(err.message));
+    fetch("https://api.escuelajs.co/api/v1/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setLoading(false);
+      });
   }, []);
 
   if (error) return <p>Error: {error}</p>;
-  if (!products.length) return <p>Loading...</p>;
+  if (loading) return <p>Loading...</p>;
+
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
