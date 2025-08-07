@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import StarRating from "./StarRating";
 
 const ProductCard = ({ product }) => {
   return (
@@ -58,22 +59,10 @@ const ProductCard = ({ product }) => {
 
         <div className="flex justify-between items-center pt-3 border-t border-zinc-100">
           <div className="flex items-center gap-1 text-yellow-400 text-sm">
-            {[...Array(5)].map((_, i) => (
-              <svg
-                key={i}
-                viewBox="0 0 24 24"
-                fill="#FFD700"
-                stroke="#FFD700"
-                strokeWidth="0.5"
-                className="w-4 h-4"
-              >
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 
-                                  5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                />
-              </svg>
-            ))}
-            <span className="ml-1 text-[11px] text-zinc-500">245 Reviews</span>
+            <StarRating rating={product.rating.rate} />
+            <span className="ml-1 text-[11px] text-zinc-500">
+              {product.rating.count} Reviews
+            </span>
           </div>
           <div className="text-[11px] font-semibold text-green-500">
             In Stock
