@@ -1,7 +1,31 @@
+import { useState, useRef } from "react";
 import StarRating from "../StarRating";
 import styles from "./SingleProductCard.module.css";
 
 const SingleProductPage = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
+  const inputRef = useRef(null);
+
+  const handleQuantity = (action) => {
+    if (action === "plus") {
+      setQuantity((prev) => prev + 1);
+    } else {
+      if (quantity > 1) {
+        setQuantity((prev) => prev - 1);
+      }
+    }
+  };
+
+  const handleQuantityChange = (e) => {
+    setQuantity(e.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if (event.key === "Enter") {
+      inputRef.current.blur();
+    }
+  };
+
   return (
     <main className={styles.main}>
       <div className={styles.card}>
@@ -46,6 +70,7 @@ const SingleProductPage = ({ product }) => {
                 </label>
                 <div className="flex items-center gap-1">
                   <button
+                    onClick={handleQuantity}
                     type="button"
                     className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
                   >
@@ -53,13 +78,17 @@ const SingleProductPage = ({ product }) => {
                   </button>
 
                   <input
+                    onChange={handleQuantityChange}
                     type="number"
                     id="Quantity"
-                    value="1"
+                    value={quantity}
+                    onKeyDown={handleKeyDown}
+                    ref={inputRef}
                     className="h-10 w-16 rounded-sm border-gray-200 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                   />
 
                   <button
+                    onClick={() => handleQuantity("plus")}
                     type="button"
                     className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
                   >
