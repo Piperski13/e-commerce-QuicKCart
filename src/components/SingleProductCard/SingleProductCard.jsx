@@ -33,7 +33,7 @@ const SingleProductPage = ({ product }) => {
       inputRef.current.blur();
     }
   };
-  
+
   return (
     <main className={styles.main}>
       <div className={styles.card}>
@@ -68,14 +68,11 @@ const SingleProductPage = ({ product }) => {
               <StarRating rating={product.rating.rate} />
               <span>({product.rating.count})</span>
               <div className={styles.add__order__div}>
-                <div className={styles.action}>
-                  <button type="button">Add to cart</button>
-                </div>
-
                 <label htmlFor="Quantity" className="sr-only">
                   {" "}
                   Quantity{" "}
                 </label>
+
                 <div className="flex items-center gap-1">
                   <button
                     onClick={handleQuantity}
@@ -103,6 +100,10 @@ const SingleProductPage = ({ product }) => {
                   >
                     +
                   </button>
+                </div>
+
+                <div className={styles.action}>
+                  <button type="button">Add to cart</button>
                 </div>
               </div>
             </div>
