@@ -3,10 +3,13 @@ import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
-    <div>
+    <div className="my-6">
       <ul className={styles.navbar}>
         <li className={styles.navItem}>
-          <Link to="/home" className={`${styles.link} ${styles.active}`}>
+          <Link
+            to="/home"
+            className={`${styles.link} ${styles.active} ${styles.roundLeft}`}
+          >
             Home
           </Link>
         </li>
@@ -16,7 +19,10 @@ const Navbar = () => {
           </Link>
         </li>
         <li className={styles.navItem}>
-          <Link to="/about" className={`${styles.link} ${styles.active}`}>
+          <Link
+            to="/about"
+            className={`${styles.link} ${styles.active} ${styles.roundRight}`}
+          >
             About
           </Link>
         </li>

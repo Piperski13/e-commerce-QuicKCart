@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
+import { useParams } from "react-router-dom";
+import Header from "./Header";
+import SingleProductCard from "./SingleProductCard/SingleProductCard";
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
+const SingleProductPage = () => {
+  const { id } = useParams();
+
+  const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
+        setProduct(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -23,12 +27,10 @@ const ProductList = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div>
+      <SingleProductCard key={product.id} product={product} />
     </div>
   );
 };
 
-export default ProductList;
+export default SingleProductPage;
