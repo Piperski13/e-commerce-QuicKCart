@@ -5,23 +5,24 @@ import StarRating from "../StarRating";
 import styles from "./SingleProductCard.module.css";
 
 const SingleProductPage = (props) => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState("1");
   const inputRef = useRef(null);
 
   const { cart, setCart } = useOutletContext();
 
   const handleQuantity = (action) => {
     if (action === "plus") {
-      setQuantity((prev) => prev + 1);
+      setQuantity((prev) => Number(prev) + 1);
     } else {
       if (quantity > 1) {
-        setQuantity((prev) => prev - 1);
+        setQuantity((prev) => Number(prev) - 1);
       }
     }
   };
 
   const handleQuantityChange = (e) => {
     const userInput = e.target.value;
+
     // Remove all non-digit characters regex
     const cleanedInput = userInput.replace(/\D/g, "");
     setQuantity(cleanedInput);
@@ -31,7 +32,7 @@ const SingleProductPage = (props) => {
     if (e.type === "keydown" && e.key !== "Enter") return;
 
     if (e.target.value === "" || e.target.value === "0") {
-      setQuantity(1);
+      setQuantity("1");
     }
     if (e.type === "keydown") {
       inputRef.current.blur();
@@ -39,22 +40,22 @@ const SingleProductPage = (props) => {
   };
 
   const handleAddToCart = (productId) => {
+    const parsedQuantity = Number(quantity);
+
     setCart((prevCart) => {
       const exists = prevCart.some((item) => item.productId === productId);
 
       if (!exists) {
-        return [...prevCart, { productId, quantity }];
+        return [...prevCart, { productId, quantity: parsedQuantity }];
       }
 
       return prevCart.map((item) =>
         item.productId === productId
-          ? { ...item, quantity: item.quantity + quantity }
+          ? { ...item, quantity: item.quantity + parsedQuantity }
           : item
       );
     });
   };
-
-  console.log("cart: ", cart);
 
   return (
     <main className={styles.main}>
@@ -101,7 +102,7 @@ const SingleProductPage = (props) => {
 
                   <input
                     onChange={handleQuantityChange}
-                    type="number"
+                    type="text"
                     id="Quantity"
                     value={quantity}
                     onKeyDown={handleBlurOrEnter}
