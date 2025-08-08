@@ -17,15 +17,23 @@ const SingleProductPage = ({ product }) => {
   };
 
   const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
+    const userInput = e.target.value;
+    // Remove all non-digit characters regex
+    const cleanedInput = userInput.replace(/\D/g, "");
+    setQuantity(cleanedInput);
   };
 
-  const handleKeyDown = (e) => {
-    if (event.key === "Enter") {
+  const handleBlurOrEnter = (e) => {
+    if (e.type === "keydown" && e.key !== "Enter") return;
+
+    if (e.target.value === "" || e.target.value === "0") {
+      setQuantity(1);
+    }
+    if (e.type === "keydown") {
       inputRef.current.blur();
     }
   };
-
+  
   return (
     <main className={styles.main}>
       <div className={styles.card}>
@@ -82,7 +90,8 @@ const SingleProductPage = ({ product }) => {
                     type="number"
                     id="Quantity"
                     value={quantity}
-                    onKeyDown={handleKeyDown}
+                    onKeyDown={handleBlurOrEnter}
+                    onBlur={handleBlurOrEnter}
                     ref={inputRef}
                     className="h-10 w-16 rounded-sm border-gray-200 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                   />
