@@ -34,6 +34,8 @@ const SingleProductPage = ({ product }) => {
     }
   };
 
+  const handleAddToCart = (e) => {};
+
   return (
     <main className={styles.main}>
       <div className={styles.card}>
@@ -68,15 +70,10 @@ const SingleProductPage = ({ product }) => {
               <StarRating rating={product.rating.rate} />
               <span>({product.rating.count})</span>
               <div className={styles.add__order__div}>
-                <label htmlFor="Quantity" className="sr-only">
-                  {" "}
-                  Quantity{" "}
-                </label>
-
+                <label htmlFor="Quantity"> Quantity </label>
                 <div className="flex items-center gap-1">
                   <button
                     onClick={handleQuantity}
-                    type="button"
                     className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
                   >
                     -
@@ -95,7 +92,6 @@ const SingleProductPage = ({ product }) => {
 
                   <button
                     onClick={() => handleQuantity("plus")}
-                    type="button"
                     className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
                   >
                     +
@@ -103,7 +99,7 @@ const SingleProductPage = ({ product }) => {
                 </div>
 
                 <div className={styles.action}>
-                  <button type="button">Add to cart</button>
+                  <button onClick={handleAddToCart}>Add to cart</button>
                 </div>
               </div>
             </div>

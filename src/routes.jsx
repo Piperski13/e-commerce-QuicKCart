@@ -3,7 +3,7 @@ import App from "./App";
 import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
 import CartPage from "./components/CartPage";
-import ProductPage from "./components/ProductPage";
+import SingleProductPage from "./components/SingleProductPage";
 
 const routes = [
   {
@@ -16,7 +16,7 @@ const routes = [
   },
   {
     path: "/product/:id",
-    element: <ProductPage />,
+    element: <SingleProductPage />,
   },
   {
     path: "/home",

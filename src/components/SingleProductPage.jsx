@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from "./Header";
 import SingleProductCard from "./SingleProductCard/SingleProductCard";
 
-const ProductPage = () => {
+const SingleProductPage = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState([]);
@@ -34,4 +34,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default SingleProductPage;
