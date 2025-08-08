@@ -1,10 +1,14 @@
 import { useState, useRef } from "react";
+import { useOutletContext } from "react-router-dom";
+
 import StarRating from "../StarRating";
 import styles from "./SingleProductCard.module.css";
 
-const SingleProductPage = ({ product }) => {
+const SingleProductPage = (props) => {
   const [quantity, setQuantity] = useState(1);
   const inputRef = useRef(null);
+
+  const { cart, setCart } = useOutletContext();
 
   const handleQuantity = (action) => {
     if (action === "plus") {
@@ -34,7 +38,23 @@ const SingleProductPage = ({ product }) => {
     }
   };
 
-  const handleAddToCart = (e) => {};
+  const handleAddToCart = (productId) => {
+    setCart((prevCart) => {
+      const exists = prevCart.some((item) => item.productId === productId);
+
+      if (!exists) {
+        return [...prevCart, { productId, quantity }];
+      }
+
+      return prevCart.map((item) =>
+        item.productId === productId
+          ? { ...item, quantity: item.quantity + quantity }
+          : item
+      );
+    });
+  };
+
+  console.log("cart: ", cart);
 
   return (
     <main className={styles.main}>
@@ -50,25 +70,25 @@ const SingleProductPage = ({ product }) => {
         <div className={styles.card__body}>
           <div className={styles.half}>
             <div className={styles.featured_text}>
-              <h1>{product.title}</h1>
-              <p className={styles.sub}>{product.category}</p>
-              <p className={styles.price}>${product.price}</p>
+              <h1>{props.product.title}</h1>
+              <p className={styles.sub}>{props.product.category}</p>
+              <p className={styles.price}>${props.product.price}</p>
             </div>
             <div className={styles.image}>
-              <img src={product.image} alt={product.title} />
+              <img src={props.product.image} alt={props.product.title} />
             </div>
           </div>
 
           <div className={styles.half}>
             <div className={styles.description}>
-              <p>{product.description}</p>
+              <p>{props.product.description}</p>
             </div>
             <span className={styles.stock}>
               <i className="fa fa-pen"></i> In stock
             </span>
             <div className={styles.reviews}>
-              <StarRating rating={product.rating.rate} />
-              <span>({product.rating.count})</span>
+              <StarRating rating={props.product.rating.rate} />
+              <span>({props.product.rating.count})</span>
               <div className={styles.add__order__div}>
                 <label htmlFor="Quantity"> Quantity </label>
                 <div className="flex items-center gap-1">
@@ -99,7 +119,9 @@ const SingleProductPage = ({ product }) => {
                 </div>
 
                 <div className={styles.action}>
-                  <button onClick={handleAddToCart}>Add to cart</button>
+                  <button onClick={() => handleAddToCart(props.product.id)}>
+                    Add to cart
+                  </button>
                 </div>
               </div>
             </div>

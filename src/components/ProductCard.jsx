@@ -41,10 +41,7 @@ const ProductCard = ({ product }) => {
               ${product.price}
             </span>
           </div>
-          <Link
-            to={`/product/${product.id}`}
-            className="relative bg-gradient-to-r from-zinc-800 to-zinc-700 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform"
-          >
+          <div className="relative bg-gradient-to-r from-zinc-800 to-zinc-700 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform">
             <span className="text-[#f8fafc]">Add to Cart</span>
             <svg
               className="w-5 h-5 text-[#f8fafc]"
@@ -57,7 +54,7 @@ const ProductCard = ({ product }) => {
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 01-8 0" />
             </svg>
-          </Link>
+          </div>
         </div>
 
         <div className="flex justify-between items-center pt-3 border-t border-zinc-100">

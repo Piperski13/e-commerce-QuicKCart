@@ -28,7 +28,6 @@ const SingleProductPage = () => {
 
   return (
     <div>
-      <Header />
       <SingleProductCard key={product.id} product={product} />
     </div>
   );
