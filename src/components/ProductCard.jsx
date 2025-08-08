@@ -3,7 +3,10 @@ import StarRating from "./StarRating";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="w-[360px] bg-white rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl font-sans overflow-hidden relative cursor-pointer m-4">
+    <Link
+      to={`/product/${product.id}`}
+      className="w-[360px] bg-white rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl font-sans overflow-hidden relative cursor-pointer m-4"
+    >
       <div className="absolute top-2 right-2 bg-gradient-to-r from-red-800 via-red-400 to-red-700 text-white text-[11px] font-semibold px-2 py-1 rounded-md shadow z-10 uppercase tracking-wider">
         Hot Sale
       </div>
@@ -69,7 +72,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
