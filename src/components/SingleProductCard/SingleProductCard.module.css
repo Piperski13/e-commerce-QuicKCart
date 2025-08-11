@@ -161,7 +161,7 @@
   );
 }
 
-.action button {
+.action__button {
   cursor: pointer;
   border: 1px solid #115dd8;
   padding: 14px 30px;
@@ -171,9 +171,11 @@
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   transition: 200ms;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.action button:hover {
+.action__button:hover {
   background: #fff;
   color: #115dd8;
 }

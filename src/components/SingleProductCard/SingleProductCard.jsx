@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 
 import StarRating from "../StarRating";
 import styles from "./SingleProductCard.module.css";
@@ -9,6 +9,10 @@ const SingleProductPage = (props) => {
   const inputRef = useRef(null);
 
   const { cart, setCart } = useOutletContext();
+
+  const buyNowLink = cart.some((item) => {
+    return item.productId === props.product.id;
+  });
 
   const handleQuantity = (action) => {
     if (action === "plus") {
@@ -120,9 +124,19 @@ const SingleProductPage = (props) => {
                 </div>
 
                 <div className={styles.action}>
-                  <button onClick={() => handleAddToCart(props.product.id)}>
+                  <button
+                    className={styles.action__button}
+                    onClick={() => handleAddToCart(props.product.id)}
+                  >
                     Add to cart
                   </button>
+                  {buyNowLink ? (
+                    <Link to="/cart" className={styles.action__button}>
+                      Buy it now
+                    </Link>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>

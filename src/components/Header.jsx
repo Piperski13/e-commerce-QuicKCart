@@ -3,7 +3,6 @@ import Navbar from "./Navbar/Navbar";
 import { Link } from "react-router-dom";
 
 const Header = (props) => {
-  console.log("header props.cart: ", props.cart);
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
