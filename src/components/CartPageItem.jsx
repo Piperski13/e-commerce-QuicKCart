@@ -6,6 +6,10 @@ const CartPageItem = (props) => {
   const [quantity, setQuantity] = useState(props.product.quantity);
   const { cart, setCart } = useOutletContext();
 
+  const handleDeleteItem = (id) => {
+    setCart((prev) => prev.filter((item) => item.productId !== id));
+  };
+
   console.log("CartPageItem cart: ", cart);
   console.log("CartPageItem props: ", props);
   console.log("CartPageItem quantity: ", quantity);
@@ -40,7 +44,7 @@ const CartPageItem = (props) => {
             />
             <div className="text-end md:order-4 md:w-32">
               <p className="text-base font-bold text-gray-900 dark:text-white">
-                ${props.product.productData.price}
+                ${quantity * props.product.productData.price}
               </p>
             </div>
           </div>
@@ -72,6 +76,9 @@ const CartPageItem = (props) => {
               </button>
 
               <button
+                onClick={() => {
+                  handleDeleteItem(props.product.productData.id);
+                }}
                 type="button"
                 className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"
               >
