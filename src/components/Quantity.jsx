@@ -29,7 +29,7 @@ const Quantity = ({
   };
 
   const handleQuantityChange = (e) => {
-    const cleanedInput = e.target.quantityValue.replace(/\D/g, "");
+    const cleanedInput = e.target.value.replace(/\D/g, "");
     setQuantity(cleanedInput);
   };
 
