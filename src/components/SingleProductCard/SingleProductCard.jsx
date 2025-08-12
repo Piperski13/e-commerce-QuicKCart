@@ -20,7 +20,10 @@ const SingleProductPage = (props) => {
       const exists = prevCart.some((item) => item.productId === productId);
 
       if (!exists) {
-        return [...prevCart, { productId, quantity: parsedQuantity }];
+        return [
+          ...prevCart,
+          { productId, quantity: parsedQuantity, productData: props.product },
+        ];
       }
 
       return prevCart.map((item) =>
@@ -66,7 +69,7 @@ const SingleProductPage = (props) => {
               <span>({props.product.rating.count})</span>
               <div className={styles.add__order__div}>
                 <label htmlFor="Quantity"> Quantity </label>
-                <Quantity value={quantity} onChange={setQuantity} />
+                <Quantity quantityValue={quantity} setQuantity={setQuantity} />
                 <div className={styles.action}>
                   <button
                     className={styles.action__button}
