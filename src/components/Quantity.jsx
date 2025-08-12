@@ -25,7 +25,6 @@ const Quantity = ({ value, onChange }) => {
 
   return (
     <>
-      <label htmlFor="Quantity"> Quantity </label>
       <div className="flex items-center gap-1">
         <button
           onClick={() => handleQuantity("minus")}

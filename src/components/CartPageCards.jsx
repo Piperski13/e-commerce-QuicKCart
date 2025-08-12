@@ -3,6 +3,7 @@ import CartPageItem from "./CartPageItem";
 
 const CartPageCards = (props) => {
   console.log("products in cartpageCards: ", props.products);
+
   const cartListItems = props.products.map((product) => {
     return (
       <div key={product.id}>
@@ -23,11 +24,7 @@ const CartPageCards = (props) => {
 
           <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
             <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
-              {/* SHOPING CART ITEMS START */}
-              {/* <CartPageItems /> */}
               {cartListItems}
-              {/* SHOPING CART ITEMS END */}
-
               {/* RECOMMENDED CART ITEMS START */}
 
               <div className="hidden xl:mt-8 xl:block">

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import Quantity from "./Quantity";
+
 const CartPageItem = (props) => {
   console.log("props cartPageItem: ", props.product);
+
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
@@ -24,7 +27,7 @@ const CartPageItem = (props) => {
 
           <label className="sr-only">Choose quantity:</label>
           <div className="flex items-center justify-between md:order-3 md:justify-end">
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <button
                 type="button"
                 id="decrement-button"
@@ -37,7 +40,9 @@ const CartPageItem = (props) => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 18 2"
-                ></svg>
+                >
+                  <path stroke="currentColor" strokeWidth="2" d="M4 9h10" />
+                </svg>
               </button>
               <input
                 type="text"
@@ -60,9 +65,16 @@ const CartPageItem = (props) => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 18 18"
-                ></svg>
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    d="M9 1v16M1 9h16"
+                  />
+                </svg>
               </button>
-            </div>
+            </div> */}
+            <Quantity />
             <div className="text-end md:order-4 md:w-32">
               <p className="text-base font-bold text-gray-900 dark:text-white">
                 ${props.product.price}

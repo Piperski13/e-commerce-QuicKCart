@@ -7,7 +7,6 @@ import styles from "./SingleProductCard.module.css";
 
 const SingleProductPage = (props) => {
   const [quantity, setQuantity] = useState("1");
-
   const { cart, setCart } = useOutletContext();
 
   const buyNowLink = cart.some((item) => {
@@ -66,6 +65,7 @@ const SingleProductPage = (props) => {
               <StarRating rating={props.product.rating.rate} />
               <span>({props.product.rating.count})</span>
               <div className={styles.add__order__div}>
+                <label htmlFor="Quantity"> Quantity </label>
                 <Quantity value={quantity} onChange={setQuantity} />
                 <div className={styles.action}>
                   <button
