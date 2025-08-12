@@ -36,9 +36,23 @@ const Quantity = ({
   const handleBlurOrEnter = (e) => {
     if (e.type === "keydown" && e.key !== "Enter") return;
 
-    if (!quantityValue || quantityValue === "0") {
-      setQuantity("1");
+    let newQty = quantityValue;
+    if (!newQty || newQty === "0") {
+      newQty = "1";
+      setQuantity(newQty);
     }
+
+    //manual input value for cart page update
+    if (productId) {
+      setCart((prev) =>
+        prev.map((item) =>
+          item.productId === productId
+            ? { ...item, quantity: Number(newQty) }
+            : item
+        )
+      );
+    }
+
     if (e.type === "keydown") {
       e.target.blur();
     }
