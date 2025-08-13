@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 import CartPageItem from "./CartPageItem";
 
 import { formatCurrency } from "../utils/format";
@@ -27,7 +27,7 @@ const CartPage = () => {
   });
 
   let totalPriceBeforeTax = 0;
-  
+
   for (const price of Object.values(itemTotals)) {
     totalPriceBeforeTax += price;
   }
@@ -345,9 +345,8 @@ const CartPage = () => {
                     {" "}
                     or{" "}
                   </span>
-                  <a
-                    href="#"
-                    title=""
+                  <Link
+                    to="/products"
                     className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500"
                   >
                     Continue Shopping
@@ -358,7 +357,7 @@ const CartPage = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                     ></svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* ORDER SUMMARY END */}
