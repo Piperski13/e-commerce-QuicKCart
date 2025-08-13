@@ -1,43 +1,17 @@
-import { useState, useRef } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useState } from "react";
+import { useOutletContext, Link } from "react-router-dom";
 
 import StarRating from "../StarRating";
+import Quantity from "../Quantity";
 import styles from "./SingleProductCard.module.css";
 
 const SingleProductPage = (props) => {
   const [quantity, setQuantity] = useState("1");
-  const inputRef = useRef(null);
-
   const { cart, setCart } = useOutletContext();
 
-  const handleQuantity = (action) => {
-    if (action === "plus") {
-      setQuantity((prev) => Number(prev) + 1);
-    } else {
-      if (quantity > 1) {
-        setQuantity((prev) => Number(prev) - 1);
-      }
-    }
-  };
-
-  const handleQuantityChange = (e) => {
-    const userInput = e.target.value;
-
-    // Remove all non-digit characters regex
-    const cleanedInput = userInput.replace(/\D/g, "");
-    setQuantity(cleanedInput);
-  };
-
-  const handleBlurOrEnter = (e) => {
-    if (e.type === "keydown" && e.key !== "Enter") return;
-
-    if (e.target.value === "" || e.target.value === "0") {
-      setQuantity("1");
-    }
-    if (e.type === "keydown") {
-      inputRef.current.blur();
-    }
-  };
+  const buyNowLink = cart.some((item) => {
+    return item.productId === props.product.id;
+  });
 
   const handleAddToCart = (productId) => {
     const parsedQuantity = Number(quantity);
@@ -46,7 +20,10 @@ const SingleProductPage = (props) => {
       const exists = prevCart.some((item) => item.productId === productId);
 
       if (!exists) {
-        return [...prevCart, { productId, quantity: parsedQuantity }];
+        return [
+          ...prevCart,
+          { productId, quantity: parsedQuantity, productData: props.product },
+        ];
       }
 
       return prevCart.map((item) =>
@@ -92,37 +69,21 @@ const SingleProductPage = (props) => {
               <span>({props.product.rating.count})</span>
               <div className={styles.add__order__div}>
                 <label htmlFor="Quantity"> Quantity </label>
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={handleQuantity}
-                    className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
-                  >
-                    -
-                  </button>
-
-                  <input
-                    onChange={handleQuantityChange}
-                    type="text"
-                    id="Quantity"
-                    value={quantity}
-                    onKeyDown={handleBlurOrEnter}
-                    onBlur={handleBlurOrEnter}
-                    ref={inputRef}
-                    className="h-10 w-16 rounded-sm border-gray-200 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-                  />
-
-                  <button
-                    onClick={() => handleQuantity("plus")}
-                    className="size-10 leading-10 text-gray-600 transition hover:opacity-75"
-                  >
-                    +
-                  </button>
-                </div>
-
+                <Quantity quantityValue={quantity} setQuantity={setQuantity} />
                 <div className={styles.action}>
-                  <button onClick={() => handleAddToCart(props.product.id)}>
+                  <button
+                    className={styles.action__button}
+                    onClick={() => handleAddToCart(props.product.id)}
+                  >
                     Add to cart
                   </button>
+                  {buyNowLink ? (
+                    <Link to="/cart" className={styles.action__button}>
+                      Buy it now
+                    </Link>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>

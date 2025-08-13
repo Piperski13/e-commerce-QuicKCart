@@ -4,11 +4,12 @@ import Header from "./Header";
 
 const RootLayout = () => {
   const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
   return (
     <>
       <Header cart={cart} />
       <main>
-        <Outlet context={{ cart, setCart }} />
+        <Outlet context={{ cart, setCart, products, setProducts }} />
       </main>
     </>
   );

@@ -5,6 +5,7 @@ import CartPage from "./components/CartPage";
 import SingleProductPage from "./components/SingleProductPage";
 import RootLayout from "./components/RootLayout";
 import ProductList from "./components/ProductList";
+import CheckoutPage from "./components/CheckoutPage";
 
 const routes = [
   {
@@ -18,6 +19,7 @@ const routes = [
       { path: "products", element: <ProductList /> },
       { path: "product/:id", element: <SingleProductPage /> },
       { path: "cart", element: <CartPage /> },
+      { path: "checkout", element: <CheckoutPage /> },
     ],
   },
 ];

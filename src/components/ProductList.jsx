@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import ProductCard from "./ProductCard";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  const { products, setProducts } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
