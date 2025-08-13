@@ -1,6 +1,8 @@
 import { Link, useOutletContext } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Quantity from "./Quantity";
+
+import { formatCurrency } from "../utils/format";
 
 const CartPageItem = (props) => {
   const [quantity, setQuantity] = useState(props.product.quantity);
@@ -10,9 +12,14 @@ const CartPageItem = (props) => {
     setCart((prev) => prev.filter((item) => item.productId !== id));
   };
 
-  console.log("CartPageItem cart: ", cart);
-  console.log("CartPageItem props: ", props);
-  console.log("CartPageItem quantity: ", quantity);
+  const totalPrice = quantity * props.product.productData.price;
+
+  const formattedTotal = formatCurrency(totalPrice);
+
+  useEffect(() => {
+    props.priceData(props.product.productData.id, totalPrice);
+  }, [quantity]);
+
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
@@ -44,7 +51,7 @@ const CartPageItem = (props) => {
             />
             <div className="text-end md:order-4 md:w-32">
               <p className="text-base font-bold text-gray-900 dark:text-white">
-                ${quantity * props.product.productData.price}
+                {formattedTotal}
               </p>
             </div>
           </div>

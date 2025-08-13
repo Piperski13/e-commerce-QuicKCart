@@ -1,17 +1,39 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import CartPageItem from "./CartPageItem";
 
+import { formatCurrency } from "../utils/format";
+
 const CartPage = () => {
-  const { cart, setCart } = useOutletContext();
+  const { cart } = useOutletContext();
+  const [itemTotals, setItemTotals] = useState({});
+
+  const handlePrices = (productId, price) => {
+    setItemTotals((prev) => ({
+      ...prev,
+      [productId]: price,
+    }));
+  };
 
   const cartListItems = cart.map((product) => {
     return (
-      <div key={product.id}>
-        <CartPageItem product={product} />
+      <div key={product.productId}>
+        <CartPageItem
+          product={product}
+          priceData={(productId, price) => handlePrices(productId, price)}
+        />
       </div>
     );
   });
+
+  let totalPrice = 0;
+  for (const price of Object.values(itemTotals)) {
+    totalPrice += price;
+  }
+
+  const formattedTotal = formatCurrency(totalPrice);
+
+  console.log("itemTotals: ", itemTotals);
 
   return (
     <div>
@@ -266,7 +288,7 @@ const CartPage = () => {
                         Original price
                       </dt>
                       <dd className="text-base font-medium text-gray-900 dark:text-white">
-                        $7,592.00
+                        {formattedTotal}
                       </dd>
                     </dl>
 
@@ -303,7 +325,7 @@ const CartPage = () => {
                       Total
                     </dt>
                     <dd className="text-base font-bold text-gray-900 dark:text-white">
-                      $8,191.00
+                      {formattedTotal}
                     </dd>
                   </dl>
                 </div>
@@ -341,10 +363,7 @@ const CartPage = () => {
               <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
                 <form className="space-y-4">
                   <div>
-                    <label
-                      for="voucher"
-                      className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                    >
+                    <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                       {" "}
                       Do you have a voucher or gift card?{" "}
                     </label>
