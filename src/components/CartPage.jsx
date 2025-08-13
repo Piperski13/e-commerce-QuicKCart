@@ -26,12 +26,17 @@ const CartPage = () => {
     );
   });
 
-  let totalPrice = 0;
+  let totalPriceBeforeTax = 0;
+  
   for (const price of Object.values(itemTotals)) {
-    totalPrice += price;
+    totalPriceBeforeTax += price;
   }
 
-  const formattedTotal = formatCurrency(totalPrice);
+  const originalPrice = formatCurrency(totalPriceBeforeTax);
+  const taxPrice = formatCurrency(totalPriceBeforeTax * 0.2);
+  const totalPrice = formatCurrency(
+    totalPriceBeforeTax + totalPriceBeforeTax * 0.2
+  );
 
   return (
     <div>
@@ -286,7 +291,7 @@ const CartPage = () => {
                         Original price
                       </dt>
                       <dd className="text-base font-medium text-gray-900 dark:text-white">
-                        {formattedTotal}
+                        {originalPrice}
                       </dd>
                     </dl>
 
@@ -304,7 +309,7 @@ const CartPage = () => {
                         Store Pickup
                       </dt>
                       <dd className="text-base font-medium text-gray-900 dark:text-white">
-                        $99
+                        FREE
                       </dd>
                     </dl>
 
@@ -313,7 +318,7 @@ const CartPage = () => {
                         Tax
                       </dt>
                       <dd className="text-base font-medium text-gray-900 dark:text-white">
-                        $799
+                        {taxPrice}
                       </dd>
                     </dl>
                   </div>
@@ -323,7 +328,7 @@ const CartPage = () => {
                       Total
                     </dt>
                     <dd className="text-base font-bold text-gray-900 dark:text-white">
-                      {formattedTotal}
+                      {totalPrice}
                     </dd>
                   </dl>
                 </div>
