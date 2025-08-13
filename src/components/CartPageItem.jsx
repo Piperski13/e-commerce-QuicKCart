@@ -10,10 +10,10 @@ const CartPageItem = (props) => {
 
   const handleDeleteItem = (id) => {
     setCart((prev) => prev.filter((item) => item.productId !== id));
+    props.priceData(id, 0);
   };
 
   const totalPrice = quantity * props.product.productData.price;
-
   const formattedTotal = formatCurrency(totalPrice);
 
   useEffect(() => {
