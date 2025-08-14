@@ -50,7 +50,7 @@ const CartPage = () => {
     const recommendedProducts = [...sameCategory, ...others].slice(0, 3);
 
     cartListItemsRecommended = recommendedProducts.map((product) => (
-      <div key={product.productId}>
+      <div key={product.id}>
         <CartPageRecommended product={product} />
       </div>
     ));

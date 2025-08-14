@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
           {product.category}
         </div>
         <h2 className="text-lg font-bold text-zinc-800 mb-2 leading-tight">
-          {product.title}
+          {product.title.split(" ").slice(0, 6).join(" ")}...
         </h2>
         <p className="text-[13px] text-zinc-600 mb-3 leading-relaxed">
           {product.description.split(" ").slice(0, 12).join(" ")}...
