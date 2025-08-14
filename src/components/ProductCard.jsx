@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
   const timeoutRef = useRef(null);
 
   return (
-    <div className="w-[360px] bg-white rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl font-sans overflow-hidden relative m-4">
+    <div className="w-[360px] bg-gray-800 rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl font-sans overflow-hidden relative m-4">
       <div className="absolute top-2 right-2 bg-gradient-to-r from-red-800 via-red-400 to-red-700 text-white text-[11px] font-semibold px-2 py-1 rounded-md shadow z-10 uppercase tracking-wider">
         Hot Sale
       </div>
@@ -31,13 +31,13 @@ const ProductCard = ({ product }) => {
       </Link>
 
       <div className="p-5">
-        <div className="text-[11px] text-zinc-500 uppercase font-semibold tracking-wider mb-1">
+        <div className="text-[11px] text-zinc-400 uppercase font-semibold tracking-wider mb-1">
           {product.category}
         </div>
-        <h2 className="text-lg font-bold text-zinc-800 mb-2 leading-tight">
+        <h2 className="text-lg font-bold text-zinc-200 mb-2 leading-tight">
           {product.title.split(" ").slice(0, 6).join(" ")}...
         </h2>
-        <p className="text-[13px] text-zinc-600 mb-3 leading-relaxed">
+        <p className="text-[13px] text-zinc-500 mb-3 leading-relaxed">
           {product.description.split(" ").slice(0, 12).join(" ")}...
         </p>
 
@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
             <span className="text-sm line-through text-zinc-400">
               ${Math.floor(product.price * 1.2)}
             </span>
-            <span className="text-xl font-bold text-zinc-800">
+            <span className="text-xl font-bold text-zinc-50">
               ${product.price}
             </span>
           </div>
@@ -71,7 +71,7 @@ const ProductCard = ({ product }) => {
               handleAddToCart(product.id, 1, product, setCart);
               addedToCartCheckmark(setCheckmark, timeoutRef);
             }}
-            className="relative bg-gradient-to-r from-zinc-800 to-zinc-700 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform cursor-pointer"
+            className="relative bg-gradient-to-r from-gray-600 to-gray-800 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform cursor-pointer"
           >
             <span className="text-[#f8fafc]">Add to Cart</span>
             <svg
