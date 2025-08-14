@@ -1,26 +1,8 @@
 import { useOutletContext, Link } from "react-router-dom";
+import { handleAddToCart } from "../utils/handleAddToCart";
 
 const CartPageRecommended = (props) => {
-  const { cart, setCart } = useOutletContext();
-
-  const handleAddToCart = (productId) => {
-    setCart((prevCart) => {
-      const exists = prevCart.some((item) => item.productId === productId);
-
-      if (!exists) {
-        return [
-          ...prevCart,
-          { productId, quantity: 1, productData: props.product },
-        ];
-      }
-
-      return prevCart.map((item) =>
-        item.productId === productId
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-    });
-  };
+  const { setCart } = useOutletContext();
 
   return (
     <div className="space-y-6 overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
@@ -60,7 +42,9 @@ const CartPageRecommended = (props) => {
       </div>
       <div className="mt-6 flex items-center gap-2.5">
         <button
-          onClick={() => handleAddToCart(props.product.id)}
+          onClick={() =>
+            handleAddToCart(props.product.id, 1, props.product, setCart)
+          }
           type="button"
           className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white p-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
         >

@@ -4,6 +4,7 @@ import { useOutletContext, Link } from "react-router-dom";
 import StarRating from "../StarRating";
 import Quantity from "../Quantity";
 import styles from "./SingleProductCard.module.css";
+import { handleAddToCart } from "../../utils/handleAddToCart";
 
 const SingleProductPage = (props) => {
   const [quantity, setQuantity] = useState("1");
@@ -12,27 +13,6 @@ const SingleProductPage = (props) => {
   const buyNowLink = cart.some((item) => {
     return item.productId === props.product.id;
   });
-
-  const handleAddToCart = (productId) => {
-    const parsedQuantity = Number(quantity);
-
-    setCart((prevCart) => {
-      const exists = prevCart.some((item) => item.productId === productId);
-
-      if (!exists) {
-        return [
-          ...prevCart,
-          { productId, quantity: parsedQuantity, productData: props.product },
-        ];
-      }
-
-      return prevCart.map((item) =>
-        item.productId === productId
-          ? { ...item, quantity: item.quantity + parsedQuantity }
-          : item
-      );
-    });
-  };
 
   return (
     <main className={styles.main}>
@@ -73,7 +53,14 @@ const SingleProductPage = (props) => {
                 <div className={styles.action}>
                   <button
                     className={styles.action__button}
-                    onClick={() => handleAddToCart(props.product.id)}
+                    onClick={() =>
+                      handleAddToCart(
+                        props.product.id,
+                        quantity,
+                        props.product,
+                        setCart
+                      )
+                    }
                   >
                     Add to cart
                   </button>
