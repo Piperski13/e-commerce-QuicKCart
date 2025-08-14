@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const [quantity, setQuantity] = useState(0);
-  console.log("quantity HEADER: ", quantity);
+
   useEffect(() => {
     let total = 0;
     props.cart.forEach((item) => {
