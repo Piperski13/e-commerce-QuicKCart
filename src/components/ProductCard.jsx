@@ -1,9 +1,15 @@
 import { Link, useOutletContext } from "react-router-dom";
+import { useState, useRef } from "react";
+
 import StarRating from "./StarRating";
 import { handleAddToCart } from "../utils/handleAddToCart";
+import { addedToCartCheckmark } from "../utils/checkmark";
 
 const ProductCard = ({ product }) => {
   const { setCart } = useOutletContext();
+
+  const [checkmark, setCheckmark] = useState(false);
+  const timeoutRef = useRef(null);
 
   return (
     <div className="w-[360px] bg-white rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl font-sans overflow-hidden relative m-4">
@@ -44,8 +50,27 @@ const ProductCard = ({ product }) => {
               ${product.price}
             </span>
           </div>
+          <div
+            className={`flex items-center gap-2 text-green-600 ${
+              checkmark ? "" : "hidden"
+            }`}
+          >
+            Added
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
           <button
-            onClick={() => handleAddToCart(product.id, 1, product, setCart)}
+            onClick={() => {
+              handleAddToCart(product.id, 1, product, setCart);
+              addedToCartCheckmark(setCheckmark, timeoutRef);
+            }}
             className="relative bg-gradient-to-r from-zinc-800 to-zinc-700 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform cursor-pointer"
           >
             <span className="text-[#f8fafc]">Add to Cart</span>
