@@ -1,9 +1,3 @@
-// import { useOutletContext, Link } from "react-router-dom";
-// const handleAddToCart = () => {
-//   const { cart, setCart } = useOutletContext();
-// };
-// export default handleAddToCart;
-
 export function handleAddToCart(productId, quantity, product, setCart) {
   const parsedQuantity = Number(quantity);
 

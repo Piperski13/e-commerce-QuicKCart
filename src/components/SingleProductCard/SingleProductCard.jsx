@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 
 import StarRating from "../StarRating";
 import Quantity from "../Quantity";
 import styles from "./SingleProductCard.module.css";
+
 import { handleAddToCart } from "../../utils/handleAddToCart";
+import { addedToCartCheckmark } from "../../utils/checkmark";
 
 const SingleProductPage = (props) => {
   const [quantity, setQuantity] = useState("1");
   const { cart, setCart } = useOutletContext();
+
+  const [checkmark, setCheckmark] = useState(false);
+  const timeoutRef = useRef(null);
 
   const buyNowLink = cart.some((item) => {
     return item.productId === props.product.id;
@@ -50,17 +55,34 @@ const SingleProductPage = (props) => {
               <div className={styles.add__order__div}>
                 <label htmlFor="Quantity"> Quantity </label>
                 <Quantity quantityValue={quantity} setQuantity={setQuantity} />
-                <div className={styles.action}>
+                <div>
+                  <div
+                    className={`flex items-center justify-center gap-2 text-green-600 ${
+                      checkmark ? "" : "hidden"
+                    }`}
+                  >
+                    Added
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
                   <button
                     className={styles.action__button}
-                    onClick={() =>
+                    onClick={() => {
                       handleAddToCart(
                         props.product.id,
                         quantity,
                         props.product,
                         setCart
-                      )
-                    }
+                      );
+                      addedToCartCheckmark(setCheckmark, timeoutRef);
+                    }}
                   >
                     Add to cart
                   </button>

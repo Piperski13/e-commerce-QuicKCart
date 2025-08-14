@@ -6,7 +6,7 @@ import { formatCurrency } from "../utils/format";
 
 const CartPageItem = (props) => {
   const [quantity, setQuantity] = useState(props.product.quantity);
-  const { cart, setCart } = useOutletContext();
+  const { setCart } = useOutletContext();
 
   const handleDeleteItem = (id) => {
     setCart((prev) => prev.filter((item) => item.productId !== id));
@@ -68,18 +68,9 @@ const CartPageItem = (props) => {
             <div className="flex items-center gap-4">
               <button
                 type="button"
-                className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 hover:underline dark:text-gray-400 dark:hover:text-white"
+                className="inline-flex items-center text-sm font-medium text-gray-500"
               >
-                <svg
-                  className="me-1.5 h-5 w-5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                ></svg>
-                Add to Favorites
+                {props.product.productData.category}
               </button>
 
               <button
