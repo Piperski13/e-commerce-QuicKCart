@@ -6,7 +6,7 @@ import { formatCurrency } from "../utils/format";
 
 const CartPageItem = (props) => {
   const [quantity, setQuantity] = useState(props.product.quantity);
-  const { cart, setCart } = useOutletContext();
+  const { setCart } = useOutletContext();
 
   const handleDeleteItem = (id) => {
     setCart((prev) => prev.filter((item) => item.productId !== id));

@@ -1,17 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import StarRating from "./StarRating";
+import { handleAddToCart } from "../utils/handleAddToCart";
 
 const ProductCard = ({ product }) => {
+  const { setCart } = useOutletContext();
+
   return (
-    <Link
-      to={`/product/${product.id}`}
-      className="w-[360px] bg-white rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl font-sans overflow-hidden relative cursor-pointer m-4"
-    >
+    <div className="w-[360px] bg-white rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl font-sans overflow-hidden relative m-4">
       <div className="absolute top-2 right-2 bg-gradient-to-r from-red-800 via-red-400 to-red-700 text-white text-[11px] font-semibold px-2 py-1 rounded-md shadow z-10 uppercase tracking-wider">
         Hot Sale
       </div>
 
-      <div className="overflow-hidden">
+      <Link
+        to={`/product/${product.id}`}
+        className="overflow-hidden cursor-pointer"
+      >
         <div className="h-[200px] overflow-hidden">
           <img
             src={product.image}
@@ -19,7 +22,7 @@ const ProductCard = ({ product }) => {
             className="w-full h-48 object-contain mb-2"
           />
         </div>
-      </div>
+      </Link>
 
       <div className="p-5">
         <div className="text-[11px] text-zinc-500 uppercase font-semibold tracking-wider mb-1">
@@ -41,7 +44,10 @@ const ProductCard = ({ product }) => {
               ${product.price}
             </span>
           </div>
-          <div className="relative bg-gradient-to-r from-zinc-800 to-zinc-700 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform">
+          <button
+            onClick={() => handleAddToCart(product.id, 1, product, setCart)}
+            className="relative bg-gradient-to-r from-zinc-800 to-zinc-700 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform cursor-pointer"
+          >
             <span className="text-[#f8fafc]">Add to Cart</span>
             <svg
               className="w-5 h-5 text-[#f8fafc]"
@@ -54,7 +60,7 @@ const ProductCard = ({ product }) => {
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 01-8 0" />
             </svg>
-          </div>
+          </button>
         </div>
 
         <div className="flex justify-between items-center pt-3 border-t border-zinc-100">
@@ -69,7 +75,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
