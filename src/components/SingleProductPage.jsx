@@ -26,7 +26,7 @@ const SingleProductPage = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div>
+    <div className="bg-gray-900">
       <SingleProductCard key={product.id} product={product} />
     </div>
   );

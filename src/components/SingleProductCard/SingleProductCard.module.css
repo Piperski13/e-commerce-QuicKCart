@@ -4,13 +4,13 @@
 
 .main {
   max-width: 790px;
-  margin: 5% auto;
+  margin: 5% auto; /*margina gore grey dole white */
 }
 
 .card {
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
   transition: 200ms;
-  background: #fff;
+  background: #101828;
   border: 2px solid rgb(160, 155, 155);
 }
 
