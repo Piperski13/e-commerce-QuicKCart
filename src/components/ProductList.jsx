@@ -24,7 +24,7 @@ const ProductList = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div className="bg-gray-900 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

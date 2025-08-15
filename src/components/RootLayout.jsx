@@ -6,7 +6,7 @@ const RootLayout = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   return (
-    <div className="bg-gray-900">
+    <div>
       <Header cart={cart} />
       <main>
         <Outlet context={{ cart, setCart, products, setProducts }} />

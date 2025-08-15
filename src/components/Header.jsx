@@ -15,7 +15,7 @@ const Header = (props) => {
   }, [props.cart]);
   return (
     <div
-      className="flex justify-around items-center bg-gray-900 border-b-3 border-b-gray-700 text-zinc-50 bg-cover bg-center"
+      className="flex justify-around items-center border-b-3 border-b-gray-700 text-zinc-50 bg-cover bg-center"
       style={{ backgroundImage: `url(${patternImage})` }}
     >
       <h1>QuicKCart.</h1>
