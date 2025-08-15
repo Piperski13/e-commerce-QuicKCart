@@ -14,7 +14,7 @@ const Header = (props) => {
   }, [props.cart]);
 
   return (
-    <div className="flex justify-around items-center bg-[#ffefd5] border-b-3 border-b-gray-300 mb-3">
+    <div className="flex justify-around items-center bg-gray-900 border-b-3 border-b-gray-700 text-zinc-50">
       <h1>Store</h1>
       <Navbar />
       <Link to="/cart">Cart {quantity}</Link>
