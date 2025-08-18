@@ -7,9 +7,9 @@ const RootLayout = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header cart={cart} />
-      <main>
+      <main className="flex-grow">
         <Outlet context={{ cart, setCart, products, setProducts }} />
       </main>
       <Footer />
