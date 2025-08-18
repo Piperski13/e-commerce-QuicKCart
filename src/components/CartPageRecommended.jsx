@@ -1,9 +1,14 @@
 import { useOutletContext, Link } from "react-router-dom";
+import { useEffect } from "react";
 import { handleAddToCart } from "../utils/handleAddToCart";
 import { formatCurrency } from "../utils/format";
 
 const CartPageRecommended = (props) => {
-  const { setCart } = useOutletContext();
+  const { cart, setCart } = useOutletContext();
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <div className="relative h-[470px] space-y-6 overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">

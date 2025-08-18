@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 import { formatCurrency } from "../utils/format";
 
@@ -8,6 +8,10 @@ import CartPageRecommended from "./CartPageRecommended";
 
 const CartPage = () => {
   const { cart, products } = useOutletContext();
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const [itemTotals, setItemTotals] = useState({});
   const [savings, setSavings] = useState(0);
@@ -19,19 +23,9 @@ const CartPage = () => {
     }));
   };
 
-  const cartListItems = cart.map((product) => {
-    return (
-      <div key={product.productId}>
-        <CartPageItem
-          product={product}
-          priceData={(productId, price) => handlePrices(productId, price)}
-        />
-      </div>
-    );
-  });
-
-  // Recommendation start
-  let cartListItemsRecommended;
+  // Cart items and Recommendation start
+  let cartListItems = false;
+  let cartListItemsRecommended = false;
 
   if (cart.length > 0) {
     const recommendedCategory = cart[0].productData.category;
@@ -54,9 +48,20 @@ const CartPage = () => {
         <CartPageRecommended product={product} />
       </div>
     ));
+
+    cartListItems = cart.map((product) => {
+      return (
+        <div key={product.productId}>
+          <CartPageItem
+            product={product}
+            priceData={(productId, price) => handlePrices(productId, price)}
+          />
+        </div>
+      );
+    });
   }
 
-  // Recommendation end
+  //Cart items and Recommendation end
 
   //Total price summary start
 
@@ -76,7 +81,6 @@ const CartPage = () => {
     if (discount) {
       setSavings(totalPriceBeforeTax * 0.1);
     }
-    console.log("savings: ", savings);
   };
 
   //Total price summary end
@@ -86,7 +90,7 @@ const CartPage = () => {
       <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
-            Shopping Cart
+            {cartListItems ? "Shopping Cart" : "No items in cart"}
           </h2>
 
           <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
@@ -96,7 +100,7 @@ const CartPage = () => {
 
               <div className="hidden xl:mt-8 xl:block">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                  People also bought
+                  {cartListItemsRecommended ? "People also bought" : ""}
                 </h3>
                 <div className="mt-6 grid grid-cols-3 gap-4 sm:mt-8">
                   {cartListItemsRecommended}

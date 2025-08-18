@@ -1,12 +1,16 @@
 import { Link, useOutletContext } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import StarRating from "./StarRating";
 import { handleAddToCart } from "../utils/handleAddToCart";
 import { addedToCartCheckmark } from "../utils/checkmark";
 
 const ProductCard = ({ product }) => {
-  const { setCart } = useOutletContext();
+  const { cart, setCart } = useOutletContext();
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const [checkmark, setCheckmark] = useState(false);
   const timeoutRef = useRef(null);
