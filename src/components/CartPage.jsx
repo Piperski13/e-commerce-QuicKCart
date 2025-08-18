@@ -19,19 +19,9 @@ const CartPage = () => {
     }));
   };
 
-  const cartListItems = cart.map((product) => {
-    return (
-      <div key={product.productId}>
-        <CartPageItem
-          product={product}
-          priceData={(productId, price) => handlePrices(productId, price)}
-        />
-      </div>
-    );
-  });
-
-  // Recommendation start
-  let cartListItemsRecommended;
+  // Cart items and Recommendation start
+  let cartListItems = <p>No added items to the cart</p>;
+  let cartListItemsRecommended = <p>No recommendations</p>;
 
   if (cart.length > 0) {
     const recommendedCategory = cart[0].productData.category;
@@ -54,9 +44,20 @@ const CartPage = () => {
         <CartPageRecommended product={product} />
       </div>
     ));
+
+    cartListItems = cart.map((product) => {
+      return (
+        <div key={product.productId}>
+          <CartPageItem
+            product={product}
+            priceData={(productId, price) => handlePrices(productId, price)}
+          />
+        </div>
+      );
+    });
   }
 
-  // Recommendation end
+  //Cart items and Recommendation end
 
   //Total price summary start
 
@@ -76,7 +77,6 @@ const CartPage = () => {
     if (discount) {
       setSavings(totalPriceBeforeTax * 0.1);
     }
-    console.log("savings: ", savings);
   };
 
   //Total price summary end
