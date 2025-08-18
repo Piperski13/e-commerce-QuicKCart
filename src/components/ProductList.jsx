@@ -12,6 +12,7 @@ const ProductList = () => {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
+        localStorage.setItem("products", JSON.stringify(data));
         setLoading(false);
       })
       .catch((err) => {

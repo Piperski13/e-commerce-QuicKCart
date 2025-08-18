@@ -8,7 +8,10 @@ const RootLayout = () => {
     const saved = localStorage.getItem("cart");
     return saved ? JSON.parse(saved) : [];
   });
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(() => {
+    const saved = localStorage.getItem("products");
+    return saved ? JSON.parse(saved) : [];
+  });
   return (
     <div className="flex flex-col min-h-screen">
       <Header cart={cart} />
