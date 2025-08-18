@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const RootLayout = () => {
   const [cart, setCart] = useState([]);
@@ -11,6 +12,7 @@ const RootLayout = () => {
       <main>
         <Outlet context={{ cart, setCart, products, setProducts }} />
       </main>
+      <Footer />
     </div>
   );
 };
