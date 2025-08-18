@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 import { formatCurrency } from "../utils/format";
 
@@ -8,6 +8,10 @@ import CartPageRecommended from "./CartPageRecommended";
 
 const CartPage = () => {
   const { cart, products } = useOutletContext();
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const [itemTotals, setItemTotals] = useState({});
   const [savings, setSavings] = useState(0);
