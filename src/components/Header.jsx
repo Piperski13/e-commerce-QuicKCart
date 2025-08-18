@@ -18,9 +18,12 @@ const Header = (props) => {
       className="flex justify-around items-center border-b-3 border-b-gray-700 text-zinc-50 bg-cover bg-center"
       style={{ backgroundImage: `url(${patternImage})` }}
     >
-      <h1 className="text-3xl font-bold text-shadow-md text-zinc-300 text-shadow-blue-800">
+      <Link
+        to="/home"
+        className="text-3xl font-bold text-shadow-md text-zinc-300 text-shadow-blue-800"
+      >
         QuicKCart.
-      </h1>
+      </Link>
       <Navbar />
       <Link to="/cart">
         <div className="relative text-zinc-50 hover:text-zinc-500">

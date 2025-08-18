@@ -1,19 +1,31 @@
+import { Link } from "react-router-dom";
+
 const HomePage = () => {
   return (
-    <div className="flex items-center justify-center flex-col">
-      <h1 className="text-6xl font-bold">Make your Outfit wonderful</h1>
-      <p className="text-zinc-400">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere soluta
-        iusto expedita veniam asperiores, cumque id, tempora numquam
-        voluptatibus.
+    <div className="flex items-center justify-center flex-col h-screen">
+      <h1 className="text-6xl font-bold">
+        Shop quickly with{" "}
+        <span class="bg-gradient-to-r from-purple-400 to-[#101828] bg-clip-text text-transparent">
+          QuicKCart.
+        </span>
+      </h1>
+      <p className="text-zinc-400 mb-2 mt-10 w-200 text-center">
+        Your one-stop shop for fast, easy, and reliable online shopping. Get
+        what you need in just a few clicks.
       </p>
-      <div>
-        <button className="bg-[#1E5483] border-2 border-indigo p-3 mr-2">
+      <div className="mt-4">
+        <Link
+          to="/products"
+          className="bg-purple-900 rounded-lg p-3 mr-3 cursor-pointer"
+        >
           Start Shoping
-        </button>
-        <button className="bg-[#102d46] border-2 border-indigo p-3">
+        </Link>
+        <Link
+          to="/about"
+          className="bg-[#102d46] rounded-lg p-3 cursor-pointer"
+        >
           Learn more
-        </button>
+        </Link>
       </div>
     </div>
   );
