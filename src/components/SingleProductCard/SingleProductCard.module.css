@@ -4,14 +4,14 @@
 
 .main {
   max-width: 790px;
-  margin: 5% auto; /*margina gore grey dole white */
+  margin: 5% auto;
 }
 
 .card {
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
   transition: 200ms;
-  background: #101828;
-  border: 2px solid rgb(160, 155, 155);
+  background: #1e2939;
+  border-radius: 25px;
 }
 
 .card__title {
@@ -139,14 +139,13 @@
 .card__footer {
   padding: 30px 40px;
   display: flex;
-  flex-flow: row no-wrap;
   align-items: center;
-  position: relative;
+  justify-content: center;
 }
 
 .card__footer::before {
   content: "";
-  width: calc(100% - 40px);
+  width: 80%;
   height: 3px;
   background: #0d48a8;
 }
