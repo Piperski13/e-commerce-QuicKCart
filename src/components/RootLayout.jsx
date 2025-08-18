@@ -4,7 +4,10 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const RootLayout = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const saved = localStorage.getItem("cart");
+    return saved ? JSON.parse(saved) : [];
+  });
   const [products, setProducts] = useState([]);
   return (
     <div className="flex flex-col min-h-screen">

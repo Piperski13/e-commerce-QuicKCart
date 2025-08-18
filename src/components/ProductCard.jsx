@@ -7,6 +7,12 @@ import { addedToCartCheckmark } from "../utils/checkmark";
 
 const ProductCard = ({ product }) => {
   const { setCart } = useOutletContext();
+  
+  //const [value, setValue] = useState(() => localStorage.getItem("key") || defaultValue);
+
+  //   useEffect(() => {
+  //   localStorage.setItem("key", value);
+  // }, [value]);
 
   const [checkmark, setCheckmark] = useState(false);
   const timeoutRef = useRef(null);
