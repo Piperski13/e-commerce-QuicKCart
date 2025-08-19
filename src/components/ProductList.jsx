@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import PaginationComponent from "./PaginationComponent";
+import SearchBar from "./SearchBar";
 
 const ProductList = () => {
   const { products, setProducts } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -24,7 +27,16 @@ const ProductList = () => {
   if (error) return <p>Error: {error}</p>;
   if (loading) return <p>Loading...</p>;
 
-  return <PaginationComponent data={products} />;
+  const handleFiltered = (data) => {
+    setFilteredData(data);
+  };
+
+  return (
+    <div>
+      <SearchBar products={products} filteredProducts={handleFiltered} />
+      <PaginationComponent data={products} filteredData={filteredData} />
+    </div>
+  );
 };
 
 export default ProductList;
