@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import ProductCard from "./ProductCard";
+import PaginationComponent from "./PaginationComponent";
 
 const ProductList = () => {
   const { products, setProducts } = useOutletContext();
@@ -24,13 +25,7 @@ const ProductList = () => {
   if (error) return <p>Error: {error}</p>;
   if (loading) return <p>Loading...</p>;
 
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
-  );
+  return <PaginationComponent data={products} />;
 };
 
 export default ProductList;
