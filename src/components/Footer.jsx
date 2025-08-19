@@ -41,7 +41,7 @@ const Footer = () => {
                 alt="QuicKCart."
               />
             </a>
-            <p className="inline">Developed by Aleksa Piperski</p>
+            <p className="inline ml-2">Developed by Aleksa Piperski</p>
           </div>
 
           <div>© 2025 Aleksa Piperski . All Rights Reserved.</div>

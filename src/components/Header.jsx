@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./Navbar/Navbar";
 import { Link } from "react-router-dom";
 import patternImage from "../assets/pattern/wave-pattern.png";
+import cartIcon from "../assets/cart.png";
 
 const Header = (props) => {
   const [quantity, setQuantity] = useState(0);
@@ -27,12 +28,7 @@ const Header = (props) => {
       <Navbar />
       <Link to="/cart">
         <div className="relative text-zinc-50 hover:text-zinc-500">
-          <img
-            width="48"
-            height="48"
-            src="src/assets/cart.png"
-            alt="shopping-cart--v1"
-          />
+          <img width="48" height="48" src={cartIcon} alt="shopping-cart--v1" />
           <p className="absolute -bottom-3 -right-2 font-bold text-red-500 text-xl text-shadow-md text-shadow-zinc-800">
             {quantity}
           </p>
