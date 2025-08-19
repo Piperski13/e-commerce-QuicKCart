@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useOutletContext, Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 import CartPageItem from "./CartPageItem";
 import CartPageRecommended from "./CartPageRecommended";

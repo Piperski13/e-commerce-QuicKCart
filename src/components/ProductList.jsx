@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import ProductCard from "./ProductCard";
 import PaginationComponent from "./PaginationComponent";
 
 const ProductList = () => {
