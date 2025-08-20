@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1024px) {
+  .navDiv {
+    display: none;
+  }
+}
+
 .navDiv {
   margin: 1.5em 0;
   background-color: #101828;

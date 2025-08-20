@@ -5,7 +5,7 @@ const HomePage = () => {
     <div className="flex items-center justify-center flex-col h-screen">
       <h1 className="text-6xl font-bold">
         Shop quickly with{" "}
-        <span class="bg-gradient-to-r from-purple-400 to-[#101828] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-purple-400 to-[#101828] bg-clip-text text-transparent">
           QuicKCart.
         </span>
       </h1>
