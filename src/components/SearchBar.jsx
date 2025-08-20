@@ -20,6 +20,7 @@ const SearchBar = (props) => {
       );
     }
 
+    props.setCurrentPage(1);
     props.filteredProducts(result);
   };
 
@@ -31,7 +32,7 @@ const SearchBar = (props) => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      handleSearch();
+      handleSearch(e);
     }
   };
 

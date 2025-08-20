@@ -9,6 +9,7 @@ const ProductList = () => {
   const [error, setError] = useState(null);
 
   const [filteredData, setFilteredData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -33,8 +34,17 @@ const ProductList = () => {
 
   return (
     <div>
-      <SearchBar products={products} filteredProducts={handleFiltered} />
-      <PaginationComponent data={products} filteredData={filteredData} />
+      <SearchBar
+        products={products}
+        filteredProducts={handleFiltered}
+        setCurrentPage={setCurrentPage}
+      />
+      <PaginationComponent
+        products={products}
+        filteredData={filteredData}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };
