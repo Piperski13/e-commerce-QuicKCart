@@ -22,7 +22,7 @@ const CartPageItem = (props) => {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+      <div className="rounded-lg border border-gray-700 bg-gray-800 p-4 shadow-sm md:p-6">
         <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
           <Link
             to={`/product/${props.product.productData.id}`}
@@ -50,9 +50,7 @@ const CartPageItem = (props) => {
               productId={props.product.productData.id}
             />
             <div className="text-end md:order-4 md:w-32">
-              <p className="text-base font-bold text-gray-900 dark:text-white">
-                {formattedTotal}
-              </p>
+              <p className="text-base font-bold text-white">{formattedTotal}</p>
             </div>
           </div>
 
@@ -60,12 +58,12 @@ const CartPageItem = (props) => {
             <Link
               to={`/product/${props.product.productData.id}`}
               href="#"
-              className="text-base font-medium text-gray-900 hover:underline dark:text-white"
+              className="text-base font-medium text-white hover:underline"
             >
               {props.product.productData.title}
             </Link>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-between gap-4">
               <button
                 type="button"
                 className="inline-flex items-center text-sm font-medium text-gray-500"
@@ -78,7 +76,7 @@ const CartPageItem = (props) => {
                   handleDeleteItem(props.product.productData.id);
                 }}
                 type="button"
-                className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"
+                className="inline-flex items-center text-sm font-medium text-red-500 hover:underline mt-2"
               >
                 <svg
                   className="me-1.5 h-5 w-5"
