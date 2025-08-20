@@ -46,7 +46,7 @@ const SingleProductPage = (props) => {
             </div>
           </div>
 
-          <div className={styles.half}>
+          <div className={`${styles.half}, ${styles.secondHalf}`}>
             <div className={styles.description}>
               <p>{props.product.description}</p>
             </div>
