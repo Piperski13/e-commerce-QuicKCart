@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SingleProductCard from "./SingleProductCard/SingleProductCard";
+import Spinner from "./Spinner";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -23,7 +24,12 @@ const SingleProductPage = () => {
   }, []);
 
   if (error) return <p>Error: {error}</p>;
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Spinner />
+      </div>
+    );
 
   return (
     <div>

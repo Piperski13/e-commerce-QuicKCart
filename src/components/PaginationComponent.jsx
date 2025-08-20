@@ -1,18 +1,21 @@
-import { useState } from "react";
 import ProductCard from "./ProductCard";
 
 const itemsPerPage = 3;
 
-const PaginationComponent = (props) => {
+const PaginationComponent = ({
+  products,
+  filteredData,
+  currentPage,
+  setCurrentPage,
+}) => {
   let items = "";
 
-  if (props.filteredData.length > 0) {
-    items = props.filteredData;
+  if (filteredData.length > 0) {
+    items = filteredData;
   } else {
-    items = props.data;
+    items = products;
   }
 
-  const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(items.length / itemsPerPage);
   const currentItems = items.slice(
     (currentPage - 1) * itemsPerPage,
