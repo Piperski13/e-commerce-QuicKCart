@@ -5,7 +5,7 @@ const AboutPage = () => {
     <main className="max-w-4xl mx-auto px-6 py-12 text-center">
       <h1 className="text-4xl font-bold mb-6">
         About{" "}
-        <span class="bg-gradient-to-r from-purple-400 to-purple-800 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-purple-400 to-purple-800 bg-clip-text text-transparent">
           QuicKCart.
         </span>
       </h1>

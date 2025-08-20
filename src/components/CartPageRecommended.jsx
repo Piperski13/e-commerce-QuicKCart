@@ -11,7 +11,7 @@ const CartPageRecommended = (props) => {
   }, [cart]);
 
   return (
-    <div className="relative h-[470px] space-y-6 overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    <div className="relative md:h-[470px] space-y-6 overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
       <Link
         to={`/product/${props.product.id}`}
         className="overflow-hidden rounded"
