@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import githubIcon from "../assets/github.svg";
 
 const Footer = () => {
   return (
@@ -35,11 +36,7 @@ const Footer = () => {
         <span className="flex items-center justify-center flex-col block text-sm text-gray-500 dark:text-gray-400">
           <div className="flex items-center mb-2">
             <a href="https://github.com/Piperski13">
-              <img
-                src="src/assets/github.svg"
-                className="h-8 inline"
-                alt="QuicKCart."
-              />
+              <img src={githubIcon} className="h-8 inline" alt="Github" />
             </a>
             <p className="inline ml-2">Developed by Aleksa Piperski</p>
           </div>
