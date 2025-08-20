@@ -71,11 +71,11 @@ const CartPage = () => {
               {cartListItems}
               {/* RECOMMENDED CART ITEMS START */}
 
-              <div className="hidden xl:mt-8 xl:block">
+              <div className="xl:mt-8 xl:block">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
                   {cartListItemsRecommended ? "People also bought" : ""}
                 </h3>
-                <div className="mt-6 grid grid-cols-3 gap-4 sm:mt-8">
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-3 md:gap-4 sm:mt-8">
                   {cartListItemsRecommended}
                 </div>
               </div>
