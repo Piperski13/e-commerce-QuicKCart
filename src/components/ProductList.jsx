@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import PaginationComponent from "./PaginationComponent";
 import SearchBar from "./SearchBar";
+import Spinner from "./Spinner";
 
 const ProductList = () => {
   const { products, setProducts } = useOutletContext();
@@ -26,7 +27,12 @@ const ProductList = () => {
   }, []);
 
   if (error) return <p>Error: {error}</p>;
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Spinner />
+      </div>
+    );
 
   const handleFiltered = (data) => {
     setFilteredData(data);
@@ -39,6 +45,7 @@ const ProductList = () => {
         filteredProducts={handleFiltered}
         setCurrentPage={setCurrentPage}
       />
+
       <PaginationComponent
         products={products}
         filteredData={filteredData}
