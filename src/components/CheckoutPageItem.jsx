@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { formatCurrency } from "../utils/format";
 
 const CheckoutPageItem = (props) => {
-  console.log("props.product: ", props.product);
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
