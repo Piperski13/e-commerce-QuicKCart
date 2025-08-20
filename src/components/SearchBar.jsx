@@ -43,7 +43,7 @@ const SearchBar = (props) => {
 
   return (
     <>
-      <form className="max-w-md ml-4 mt-5">
+      <form className="w-[345px] md:ml-5 mt-4">
         <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
           Search
         </label>

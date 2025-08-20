@@ -7,7 +7,7 @@ const Categories = ({ category, handleCategoryClick = () => {} }) => {
     "Electronics",
   ];
   return (
-    <div className="absolute bottom-50 right-0 w-[360px] h-60 bg-gray-800 p-4 rounded-xl shadow-lg transition-transform duration-300 font-sans overflow-hidden m-4">
+    <div className="w-[360px] h-60 bg-gray-800 p-4 rounded-xl shadow-lg transition-transform duration-300 font-sans overflow-hidden m-4">
       <div className="flex items-center justify-between mb-4">
         <h5 className="text-xl font-bold leading-none text-gray-900 text-white">
           Categories:

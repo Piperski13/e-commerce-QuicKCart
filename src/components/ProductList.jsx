@@ -39,7 +39,7 @@ const ProductList = () => {
   };
 
   return (
-    <div>
+    <div className="max-md:flex max-md:flex-col max-md:items-center max-md:justify-center">
       <SearchBar
         products={products}
         filteredProducts={handleFiltered}
