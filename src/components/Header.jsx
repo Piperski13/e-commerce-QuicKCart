@@ -16,15 +16,17 @@ const Header = (props) => {
     setQuantity(total);
   }, [props.cart]);
   return (
-    <div
-      className="sticky top-0 flex justify-around items-center border-b-3 border-b-gray-700 text-zinc-50 bg-cover bg-center bg-[#101828] z-50"
-      style={{ backgroundImage: `url(${patternImage})` }}
-    >
+    <div className="sticky top-0 flex justify-around items-center border-b-3 border-b-gray-700 text-zinc-50 bg-cover bg-center bg-[#101828] z-50">
+      <img
+        src={patternImage}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        alt=""
+      />
       <div className="flex justify-center items-center">
         <MobileNavbar />
         <Link
           to="/home"
-          className="text-3xl font-bold text-shadow-md text-zinc-300 text-shadow-blue-800"
+          className="text-3xl font-bold text-shadow-md text-zinc-300 text-shadow-blue-800 z-1"
         >
           QuicKCart.
         </Link>

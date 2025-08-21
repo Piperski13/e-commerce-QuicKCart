@@ -30,6 +30,7 @@ const ProductCard = ({ product }) => {
             src={product.image}
             alt={product.title}
             className="w-full h-48 object-contain my-3"
+            loading="lazy"
           />
         </div>
       </Link>
