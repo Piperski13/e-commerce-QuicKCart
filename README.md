@@ -52,7 +52,16 @@ This project is deployed on Vercel.
 Each page has both **desktop and mobile** layouts.
 
 - **Home Page** – Welcome screen with navigation and featured content.  
-![Game Preview](./src/assets/readmePictures/homepage.jpg)
+![Game Preview](./src/assets/readmePictures/homepage/homepage.jpg)
+
+- **Home Page Mobile** – Welcome screen with navigation and featured content.  
+![Game Preview](./src/assets/readmePictures/homepage/homepageMobile.jpg)
+
+- **Footer** - Componenet for the bottom of the screen
+![Game Preview](./src/assets/readmePictures/homepage/footer.jpg)
+
+- **Hamburger Menu** - Sidebar for phone users
+![Game Preview](./src/assets/readmePictures/homepage/hamburgerMenu.jpg)
 
 - **About Page** – Information about the store.  
 - **Products Page** – Browse all products with search, categories, and pagination.  
