@@ -122,3 +122,19 @@ Each page has both **desktop and mobile** layouts.
 ```bash
 git clone https://github.com/yourusername/quickcart.git
 cd quickcart
+```
+### 2. Install dependencies
+```bash
+npm install
+```
+### 3. Run locally
+```bash
+npm run dev
+```
+
+## 📝 Future Improvements
+- User authentication & profile system
+
+- Order history & persistent database
+
+- Payment gateway integration
