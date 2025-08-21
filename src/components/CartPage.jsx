@@ -62,7 +62,7 @@ const CartPage = () => {
     <div>
       <section className="bg-gray-900 py-8 antialiased md:py-16">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
-          <h2 className="text-xl font-semibold text-gray-900 sm:text-2xl">
+          <h2 className="text-xl font-semibold text-white sm:text-2xl">
             {cartListItems ? "Shopping Cart" : "No items in cart"}
           </h2>
 
@@ -72,7 +72,7 @@ const CartPage = () => {
               {/* RECOMMENDED CART ITEMS START */}
 
               <div className="xl:mt-8 xl:block">
-                <h3 className="text-2xl font-semibold text-gray-900">
+                <h3 className="text-2xl font-semibold text-white">
                   {cartListItemsRecommended ? "People also bought" : ""}
                 </h3>
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-3 md:gap-4 sm:mt-8">

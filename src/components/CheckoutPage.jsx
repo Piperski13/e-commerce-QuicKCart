@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 import CheckoutPageItem from "./CheckoutPageItem";
+import { formatCurrency } from "../utils/format";
 
 const CheckoutPage = () => {
-  const { cart, setCart } = useOutletContext();
+  const {
+    cart,
+    setCart,
+    savings,
+    setSavings,
+    totalPriceBeforeTax,
+    setTotalPriceBeforeTax,
+  } = useOutletContext();
   const [receipt, setReceipt] = useState("");
 
   const generateTimestampedReceiptNumber = () => {
@@ -13,11 +21,16 @@ const CheckoutPage = () => {
   };
 
   const handlePurchase = () => {
-    if (cart.length > 0) {
-      localStorage.setItem("cart", JSON.stringify([]));
-      setCart([]);
-      setReceipt(generateTimestampedReceiptNumber);
-    }
+    localStorage.setItem("cart", JSON.stringify([]));
+    setCart([]);
+
+    localStorage.setItem("totalPriceBeforeTax", JSON.stringify(0));
+    setTotalPriceBeforeTax(0);
+
+    localStorage.setItem("savings", JSON.stringify(0));
+    setSavings(0);
+
+    setReceipt(generateTimestampedReceiptNumber);
   };
 
   let cartListItems = false;
@@ -29,6 +42,10 @@ const CheckoutPage = () => {
       </div>
     );
   });
+
+  const totalPriceCheckout = formatCurrency(
+    totalPriceBeforeTax + totalPriceBeforeTax * 0.2 - savings
+  );
 
   return (
     <div className="flex items-center justify-center flex-col ">
@@ -52,6 +69,38 @@ const CheckoutPage = () => {
         Your one-stop shop for fast, easy, and reliable online shopping.{" "}
       </p>
       <div>{cartListItems}</div>
+      <div>
+        {receipt !== "" ? (
+          ""
+        ) : (
+          <div>
+            <p className="mt-3">
+              {savings !== 0 && (
+                <>
+                  Savings:{" "}
+                  <span className="text-green-600">
+                    -{formatCurrency(savings)}
+                  </span>
+                </>
+              )}
+            </p>
+            <p>
+              {savings !== 0 && (
+                <>
+                  Total price with tax and discount:
+                  <span className="text-green-600"> {totalPriceCheckout}</span>
+                </>
+              )}
+              {savings === 0 && totalPriceBeforeTax !== 0 && (
+                <>
+                  Total price with tax:
+                  <span className="text-green-600"> {totalPriceCheckout}</span>
+                </>
+              )}
+            </p>
+          </div>
+        )}
+      </div>
       <span className="text-green-600 underline">{receipt}</span>
       <div className="flex">
         {cart.length > 0 ? (
