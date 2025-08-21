@@ -9,7 +9,7 @@ The backend data is powered by the [FakeStore API](https://fakestoreapi.com/).
 ## 📑 Table of Contents
 - [📦 Deployment](#-deployment)
 - [✨ Features](#-features)
-- [🛠️ Tech Stack](#tech-stack)
+- [🛠️ Tech Stack](#-tech-stack)
 - [📸 Screenshots](#-screenshots)
 - [🚀 Getting Started](#-getting-started)
 - [📝 Future Improvements](#-future-improvements)
