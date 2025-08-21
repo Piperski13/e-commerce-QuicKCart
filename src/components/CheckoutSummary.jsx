@@ -1,16 +1,22 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 import { formatCurrency } from "../utils/format";
 import Voucher from "./Voucher";
 
 const CheckoutSummary = (props) => {
-  const [savings, setSavings] = useState(0);
+  const { savings, setSavings, totalPriceBeforeTax, setTotalPriceBeforeTax } =
+    useOutletContext();
 
-  let totalPriceBeforeTax = 0;
+  let totalCounter = 0;
 
   for (const price of Object.values(props.itemTotals)) {
-    totalPriceBeforeTax += price;
+    totalCounter += price;
   }
+
+  setTotalPriceBeforeTax(totalCounter);
+  localStorage.setItem(
+    "totalPriceBeforeTax",
+    JSON.stringify(totalPriceBeforeTax)
+  );
 
   const originalPrice = formatCurrency(totalPriceBeforeTax);
   const taxPrice = formatCurrency(totalPriceBeforeTax * 0.2);
@@ -20,6 +26,10 @@ const CheckoutSummary = (props) => {
 
   const handleVoucherDiscount = (discount) => {
     if (discount) {
+      localStorage.setItem(
+        "savings",
+        JSON.stringify(totalPriceBeforeTax * 0.1)
+      );
       setSavings(totalPriceBeforeTax * 0.1);
     }
   };
