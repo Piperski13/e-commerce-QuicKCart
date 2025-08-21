@@ -48,7 +48,7 @@ This project is deployed on Vercel.
 
 ---
 
-## 🛠️ Tech Stack
+## 🗿 Tech Stack
 
 - **React** – component-based UI  
 - **Tailwind CSS** – utility-first styling  
