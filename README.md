@@ -51,42 +51,70 @@ This project is deployed on Vercel.
 
 Each page has both **desktop and mobile** layouts.
 
-- **Home Page** – Welcome screen with navigation and featured content.  
+- **Home Page** – Welcome screen with navigation and featured content.
+
 ![Home](./src/assets/readmePictures/homepage/homepage.jpg)
-- **Home Page Mobile** – Welcome screen with navigation and featured content.  
+- **Home Page - Mobile** – Welcome screen with navigation and featured content.  
+
 ![Home](./src/assets/readmePictures/homepage/homepageMobile.jpg)
+
 - **Footer** - Componenet for the bottom of the screen
+
 ![Footer](./src/assets/readmePictures/homepage/footer.jpg)
+
 - **Hamburger Menu** - Sidebar for phone users <br>
+
 ![Menu](./src/assets/readmePictures/homepage/hamburgerMenu.jpg)
+
 ---
 - **Products Page** – Browse all products with search, categories, and pagination.  
+
 ![Products](./src/assets/readmePictures/products/productsTop.jpg)
+
 - **Products Page** – Pagination  
+
 ![Products](./src/assets/readmePictures/products/productsMiddle.jpg)
-- **Products Mobile** <br>  
+
+- **Products Page - Mobile** <br>  
+
 ![Products](./src/assets/readmePictures/products/productsPhone.jpg)
+
 ---
 - **Single Product Page** – Detailed view of one product with option to add to cart.
+
 ![Product](./src/assets/readmePictures/singleProductPage/singleProductPage.jpg)  
+
 - **Single Product Page** – Added to cart animation <br>
+
 ![Product](./src/assets/readmePictures/singleProductPage/singleProductPageClicked.jpg)  
+
 - **Single Product Page - Mobile** <br>
+
 ![Product](./src/assets/readmePictures/singleProductPage/singleProductPageMobile.jpg) 
+
 ---
 - **Cart Page** – Displays selected items, quantity controls, recommended items, and subtotal.
+
 ![Cart](./src/assets/readmePictures/cart/cartPage.jpg)    
+
 ---
 - **Checkout Page** – Protected page showing cart summary, voucher discounts, tax, and confirmation.  
-![Checkout](./src/assets/readmePictures/checkout/checkoutPage.jpg)  
+
+![Checkout](./src/assets/readmePictures/checkout/checkoutPage.jpg) 
+
 ![Checkout](./src/assets/readmePictures/checkout/checkoutPageConfirmed.jpg)  
----
-- **About Page** – Information about the store.  
-
-
-
 
 ---
+- **About Page** – Information about the store. 
+
+![Checkout](./src/assets/readmePictures/aboutPage/aboutPage.jpg)
+
+- **About Page - Mobile** <br>
+
+![Checkout](./src/assets/readmePictures/aboutPage/aboutPageMobile.jpg)   
+ 
+---
+
 
 ## 🚀 Getting Started
 
