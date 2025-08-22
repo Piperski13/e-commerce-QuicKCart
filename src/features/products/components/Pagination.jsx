@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard";
 
 const itemsPerPage = 6;
 
-const PaginationComponent = ({
+const Pagination = ({
   products,
   filteredData,
   currentPage,
@@ -53,4 +53,4 @@ const PaginationComponent = ({
     </div>
   );
 };
-export default PaginationComponent;
+export default Pagination;

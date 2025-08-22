@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Categories from "./Categories";
+import CategoriesFilter from "./CategoriesFilter";
 
 const SearchBar = (props) => {
   const [query, setQuery] = useState("");
@@ -79,7 +79,7 @@ const SearchBar = (props) => {
           </button>
         </div>
       </form>
-      <Categories
+      <CategoriesFilter
         handleCategoryClick={handleCategoryClick}
         category={category}
       />

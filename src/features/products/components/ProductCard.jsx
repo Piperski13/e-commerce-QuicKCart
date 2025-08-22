@@ -1,9 +1,9 @@
 import { Link, useOutletContext } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
-import StarRating from "./StarRating";
-import { handleAddToCart } from "../utils/handleAddToCart";
-import { addedToCartCheckmark } from "../utils/checkmark";
+import StarRating from "../../../components/StarRating";
+import { handleAddToCart } from "../../../utils/handleAddToCart";
+import { addedToCartCheckmark } from "../../../utils/checkmark";
 
 const ProductCard = ({ product }) => {
   const { cart, setCart } = useOutletContext();

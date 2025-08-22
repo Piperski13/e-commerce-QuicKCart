@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts";
-import PaginationComponent from "../../../components/PaginationComponent";
-import SearchBar from "../../../components/SearchBar";
+import Pagination from "../components/Pagination";
+import SearchBar from "../components/SearchBar";
 import Spinner from "../../../components/Spinner";
 
 const ProductPage = () => {
@@ -32,7 +32,7 @@ const ProductPage = () => {
         setCurrentPage={setCurrentPage}
       />
 
-      <PaginationComponent
+      <Pagination
         products={products}
         filteredData={filteredData}
         currentPage={currentPage}
