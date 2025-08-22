@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts";
 import Pagination from "../components/Pagination";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/ProductFilters/SearchBar";
 import Spinner from "../../../components/Spinner";
 
 const ProductPage = () => {

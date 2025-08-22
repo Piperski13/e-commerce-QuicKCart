@@ -2,7 +2,7 @@ import ErrorPage from "./components/ErrorPage";
 import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
 import CartPage from "./components/CartPage";
-import SingleProductPage from "./components/SingleProductPage";
+import SingleProductPage from "./features/products/pages/SingleProductPage";
 import RootLayout from "./components/RootLayout";
 import ProductPage from "./features/products/pages/ProductPage";
 import CheckoutPage from "./components/CheckoutPage";

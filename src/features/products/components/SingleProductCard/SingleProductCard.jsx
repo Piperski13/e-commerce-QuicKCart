@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 
-import StarRating from "../StarRating";
-import Quantity from "../Quantity";
+import StarRating from "../../../../components/StarRating";
+import Quantity from "../../../../components/Quantity";
 import styles from "./SingleProductCard.module.css";
 
-import { addToCart } from "../../utils/addToCart";
-import { showAddedToCartFeedback } from "../../utils/checkmark";
+import { addToCart } from "../../../../utils/addToCart";
+import { showAddedToCartFeedback } from "../../../../utils/checkmark";
 
 const SingleProductPage = (props) => {
   const [quantity, setQuantity] = useState("1");
