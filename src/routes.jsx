@@ -4,7 +4,7 @@ import AboutPage from "./components/AboutPage";
 import CartPage from "./components/CartPage";
 import SingleProductPage from "./components/SingleProductPage";
 import RootLayout from "./components/RootLayout";
-import ProductList from "./components/ProductList";
+import ProductPage from "./features/products/pages/ProductPage";
 import CheckoutPage from "./components/CheckoutPage";
 
 const routes = [
@@ -16,7 +16,7 @@ const routes = [
       { path: "", element: <HomePage /> },
       { path: "home", element: <HomePage /> },
       { path: "about", element: <AboutPage /> },
-      { path: "products", element: <ProductList /> },
+      { path: "products", element: <ProductPage /> },
       { path: "product/:id", element: <SingleProductPage /> },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },

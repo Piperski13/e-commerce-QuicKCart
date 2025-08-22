@@ -1,30 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import PaginationComponent from "./PaginationComponent";
-import SearchBar from "./SearchBar";
-import Spinner from "./Spinner";
+import { useProducts } from "../hooks/useProducts";
+import PaginationComponent from "../../../components/PaginationComponent";
+import SearchBar from "../../../components/SearchBar";
+import Spinner from "../../../components/Spinner";
 
-const ProductList = () => {
+const ProductPage = () => {
   const { products, setProducts } = useOutletContext();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { loading, error } = useProducts(setProducts);
 
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        localStorage.setItem("products", JSON.stringify(data));
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setLoading(false);
-      });
-  }, []);
 
   if (error) return <p>Error: {error}</p>;
   if (loading)
@@ -56,4 +42,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default ProductPage;
