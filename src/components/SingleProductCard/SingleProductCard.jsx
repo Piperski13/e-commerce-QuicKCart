@@ -5,8 +5,8 @@ import StarRating from "../StarRating";
 import Quantity from "../Quantity";
 import styles from "./SingleProductCard.module.css";
 
-import { handleAddToCart } from "../../utils/handleAddToCart";
-import { addedToCartCheckmark } from "../../utils/checkmark";
+import { addToCart } from "../../utils/addToCart";
+import { showAddedToCartFeedback } from "../../utils/checkmark";
 
 const SingleProductPage = (props) => {
   const [quantity, setQuantity] = useState("1");
@@ -79,13 +79,13 @@ const SingleProductPage = (props) => {
                   <button
                     className={styles.action__button}
                     onClick={() => {
-                      handleAddToCart(
+                      addToCart(
                         props.product.id,
                         quantity,
                         props.product,
                         setCart
                       );
-                      addedToCartCheckmark(setCheckmark, timeoutRef);
+                      showAddedToCartFeedback(setCheckmark, timeoutRef);
                     }}
                   >
                     Add to cart
