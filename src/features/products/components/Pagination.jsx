@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard";
+import ProductGrid from "./ProductGrid";
 
 const itemsPerPage = 6;
 
@@ -24,11 +24,7 @@ const Pagination = ({
   return (
     <div>
       <div className="flex flex-col items-center justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
-          {currentItems.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <ProductGrid currentItems={currentItems} />
 
         <div>
           <button
