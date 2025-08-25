@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useOutletContext, Link } from "react-router-dom";
-import CheckoutPageItem from "../../../components/CheckoutPageItem";
+import CheckoutPageItem from "../components/CheckoutPageItem";
 import { formatCurrency } from "../../../utils/format";
 
 const CheckoutPage = () => {
