@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { formatCurrency } from "../utils/format";
+import { formatCurrency } from "../../../utils/format";
 
 const CheckoutPageItem = (props) => {
   return (
