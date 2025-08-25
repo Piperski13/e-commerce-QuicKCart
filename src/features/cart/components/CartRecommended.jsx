@@ -1,9 +1,9 @@
 import { useOutletContext, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { addToCart } from "../utils/addToCart";
-import { formatCurrency } from "../utils/format";
+import { addToCart } from "../../../utils/addToCart";
+import { formatCurrency } from "../../../utils/format";
 
-const CartPageRecommended = (props) => {
+const CartRecommended = (props) => {
   const { cart, setCart } = useOutletContext();
 
   useEffect(() => {
@@ -61,4 +61,4 @@ const CartPageRecommended = (props) => {
   );
 };
 
-export default CartPageRecommended;
+export default CartRecommended;

@@ -1,6 +1,6 @@
 import { useOutletContext, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { formatCurrency } from "../utils/format";
+import { formatCurrency } from "../../../utils/format";
 import Voucher from "./Voucher";
 
 const CheckoutSummary = (props) => {
