@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useOutletContext, Link } from "react-router-dom";
-import CheckoutPageItem from "./CheckoutPageItem";
-import { formatCurrency } from "../utils/format";
+import CheckoutPageItem from "../../../components/CheckoutPageItem";
+import { formatCurrency } from "../../../utils/format";
 
 const CheckoutPage = () => {
   const {
@@ -30,12 +30,10 @@ const CheckoutPage = () => {
     localStorage.setItem("savings", JSON.stringify(0));
     setSavings(0);
 
-    setReceipt(generateTimestampedReceiptNumber);
+    setReceipt(generateTimestampedReceiptNumber());
   };
 
-  let cartListItems = false;
-
-  cartListItems = cart.map((product) => {
+  const cartListItems = cart.map((product) => {
     return (
       <div key={product.productId}>
         <CheckoutPageItem product={product} />
