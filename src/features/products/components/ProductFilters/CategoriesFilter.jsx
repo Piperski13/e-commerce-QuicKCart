@@ -1,4 +1,4 @@
-const Categories = ({ category, handleCategoryClick = () => {} }) => {
+const CategoriesFilter = ({ category, handleCategoryClick = () => {} }) => {
   const categories = [
     "All",
     "Women's clothing",
@@ -34,4 +34,4 @@ const Categories = ({ category, handleCategoryClick = () => {} }) => {
   );
 };
 
-export default Categories;
+export default CategoriesFilter;

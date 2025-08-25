@@ -1,4 +1,4 @@
-export function addedToCartCheckmark(setCheckmark, timeoutRef) {
+export function showAddedToCartFeedback(setCheckmark, timeoutRef) {
   setCheckmark(true);
 
   if (timeoutRef.current) {

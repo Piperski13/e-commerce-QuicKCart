@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 
-import CartPageItem from "./CartPageItem";
-import CartPageRecommended from "./CartPageRecommended";
-import CheckoutSummary from "./CheckoutSummary";
+import CartItem from "../components/CartItem";
+import CartRecommended from "../components/CartRecommended";
+import CheckoutSummary from "../components/CheckoutSummary";
 
 const CartPage = () => {
   const { cart, products } = useOutletContext();
@@ -42,14 +42,14 @@ const CartPage = () => {
 
     cartListItemsRecommended = recommendedProducts.map((product) => (
       <div key={product.id}>
-        <CartPageRecommended product={product} />
+        <CartRecommended product={product} />
       </div>
     ));
 
     cartListItems = cart.map((product) => {
       return (
         <div key={product.productId}>
-          <CartPageItem
+          <CartItem
             product={product}
             priceData={(productId, price) => handlePrices(productId, price)}
           />

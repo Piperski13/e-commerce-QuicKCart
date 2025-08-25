@@ -1,9 +1,9 @@
 import { Link, useOutletContext } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
-import StarRating from "./StarRating";
-import { handleAddToCart } from "../utils/handleAddToCart";
-import { addedToCartCheckmark } from "../utils/checkmark";
+import StarRating from "../../../components/ui/StarRating";
+import { addToCart } from "../../../utils/addToCart";
+import { showAddedToCartFeedback } from "../../../utils/checkmark";
 
 const ProductCard = ({ product }) => {
   const { cart, setCart } = useOutletContext();
@@ -73,8 +73,8 @@ const ProductCard = ({ product }) => {
           </div>
           <button
             onClick={() => {
-              handleAddToCart(product.id, 1, product, setCart);
-              addedToCartCheckmark(setCheckmark, timeoutRef);
+              addToCart(product.id, 1, product, setCart);
+              showAddedToCartFeedback(setCheckmark, timeoutRef);
             }}
             className="relative bg-gradient-to-r from-gray-600 to-gray-800 text-white rounded-md px-4 py-2 text-sm font-semibold flex items-center gap-2 shadow hover:shadow-md hover:-translate-y-0.5 transition-transform cursor-pointer"
           >

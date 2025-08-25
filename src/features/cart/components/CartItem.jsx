@@ -1,10 +1,10 @@
 import { Link, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Quantity from "./Quantity";
+import Quantity from "../../../components/ui/Quantity";
 
-import { formatCurrency } from "../utils/format";
+import { formatCurrency } from "../../../utils/format";
 
-const CartPageItem = (props) => {
+const CartItem = (props) => {
   const [quantity, setQuantity] = useState(props.product.quantity);
   const { setCart } = useOutletContext();
 
@@ -97,4 +97,4 @@ const CartPageItem = (props) => {
   );
 };
 
-export default CartPageItem;
+export default CartItem;

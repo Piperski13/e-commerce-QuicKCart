@@ -1,11 +1,11 @@
-import ErrorPage from "./components/ErrorPage";
-import HomePage from "./components/HomePage";
-import AboutPage from "./components/AboutPage";
-import CartPage from "./components/CartPage";
-import SingleProductPage from "./components/SingleProductPage";
-import RootLayout from "./components/RootLayout";
-import ProductList from "./components/ProductList";
-import CheckoutPage from "./components/CheckoutPage";
+import ErrorPage from "./components/feedback/ErrorPage";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import CartPage from "./features/cart/page/CartPage";
+import SingleProductPage from "./features/products/pages/SingleProductPage";
+import RootLayout from "./components/layout/RootLayout";
+import ProductPage from "./features/products/pages/ProductPage";
+import CheckoutPage from "./features/checkout/pages/CheckoutPage";
 
 const routes = [
   {
@@ -16,7 +16,7 @@ const routes = [
       { path: "", element: <HomePage /> },
       { path: "home", element: <HomePage /> },
       { path: "about", element: <AboutPage /> },
-      { path: "products", element: <ProductList /> },
+      { path: "products", element: <ProductPage /> },
       { path: "product/:id", element: <SingleProductPage /> },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },

@@ -1,4 +1,4 @@
-export function handleAddToCart(productId, quantity, product, setCart) {
+export function addToCart(productId, quantity, product, setCart) {
   const parsedQuantity = Number(quantity);
 
   setCart((prevCart) => {

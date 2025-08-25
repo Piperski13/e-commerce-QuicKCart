@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import githubIcon from "../assets/github.svg";
+import githubIcon from "../../assets/github.svg";
 
 const Footer = () => {
   return (

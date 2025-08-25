@@ -1,9 +1,9 @@
 import { useOutletContext, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { handleAddToCart } from "../utils/handleAddToCart";
-import { formatCurrency } from "../utils/format";
+import { addToCart } from "../../../utils/addToCart";
+import { formatCurrency } from "../../../utils/format";
 
-const CartPageRecommended = (props) => {
+const CartRecommended = (props) => {
   const { cart, setCart } = useOutletContext();
 
   useEffect(() => {
@@ -50,9 +50,7 @@ const CartPageRecommended = (props) => {
       </div>
       <div className="mt-6 flex items-center gap-2.5">
         <button
-          onClick={() =>
-            handleAddToCart(props.product.id, 1, props.product, setCart)
-          }
+          onClick={() => addToCart(props.product.id, 1, props.product, setCart)}
           type="button"
           className="absolute bottom-[24px] w-[235px] gap-2 rounded-lg border border-gray-600 bg-gray-800 p-2.5 text-sm font-medium text-gray-400 hover:bg-gray-700 hover:hover:text-white focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-700"
         >
@@ -63,4 +61,4 @@ const CartPageRecommended = (props) => {
   );
 };
 
-export default CartPageRecommended;
+export default CartRecommended;
