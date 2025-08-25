@@ -1,11 +1,11 @@
 import ErrorPage from "./components/feedback/ErrorPage";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import CartPage from "./components/CartPage";
+import CartPage from "./features/cart/page/CartPage";
 import SingleProductPage from "./features/products/pages/SingleProductPage";
 import RootLayout from "./components/layout/RootLayout";
 import ProductPage from "./features/products/pages/ProductPage";
-import CheckoutPage from "./components/CheckoutPage";
+import CheckoutPage from "./features/checkout/pages/CheckoutPage";
 
 const routes = [
   {
