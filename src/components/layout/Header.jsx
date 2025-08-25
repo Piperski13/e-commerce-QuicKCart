@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import MobileNavbar from "./MobileNavbar";
 import Navbar from "./Navbar/Navbar";
 import { Link } from "react-router-dom";
-import patternImage from "../assets/pattern/wave-pattern.png";
+import patternImage from "../../assets/pattern/wave-pattern.png";
 import cartIcon from "../assets/cart.png";
 
 const Header = (props) => {
