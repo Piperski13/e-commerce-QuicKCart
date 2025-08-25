@@ -1,9 +1,9 @@
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./components/feedback/ErrorPage";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import CartPage from "./components/CartPage";
 import SingleProductPage from "./features/products/pages/SingleProductPage";
-import RootLayout from "./components/RootLayout";
+import RootLayout from "./components/layout/RootLayout";
 import ProductPage from "./features/products/pages/ProductPage";
 import CheckoutPage from "./components/CheckoutPage";
 

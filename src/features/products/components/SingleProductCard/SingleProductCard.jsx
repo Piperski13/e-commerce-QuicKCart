@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { useOutletContext, Link } from "react-router-dom";
 
-import StarRating from "../../../../components/StarRating";
-import Quantity from "../../../../components/Quantity";
+import StarRating from "../../../../components/ui/StarRating";
+import Quantity from "../../../../components/ui/Quantity";
 import styles from "./SingleProductCard.module.css";
 
 import { addToCart } from "../../../../utils/addToCart";

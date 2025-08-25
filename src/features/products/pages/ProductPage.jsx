@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/ProductFilters/SearchBar";
-import Spinner from "../../../components/Spinner";
+import Spinner from "../../../components/ui/Spinner";
 
 const ProductPage = () => {
   const { products, setProducts } = useOutletContext();

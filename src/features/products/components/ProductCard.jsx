@@ -1,7 +1,7 @@
 import { Link, useOutletContext } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
-import StarRating from "../../../components/StarRating";
+import StarRating from "../../../components/ui/StarRating";
 import { addToCart } from "../../../utils/addToCart";
 import { showAddedToCartFeedback } from "../../../utils/checkmark";
 

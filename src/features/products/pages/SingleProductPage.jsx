@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SingleProductCard from "../components/SingleProductCard/SingleProductCard";
-import Spinner from "../../../components/Spinner";
+import Spinner from "../../../components/ui/Spinner";
 
 const SingleProductPage = () => {
   const { id } = useParams();

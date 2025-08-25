@@ -1,6 +1,6 @@
 import { Link, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Quantity from "../../../components/Quantity";
+import Quantity from "../../../components/ui/Quantity";
 
 import { formatCurrency } from "../../../utils/format";
 
